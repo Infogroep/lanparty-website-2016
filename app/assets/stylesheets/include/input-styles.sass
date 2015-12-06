@@ -1,0 +1,21 @@
+/**
+ * Generic helpers that are too simple to warrant their own file.
+ */
+
+// Applies style to placeholder
+=input-placeholder-style
+  &::input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+// Applies style to input and to placeholder
+=input-font-style
+  @content
+
+  +input-placeholder-style
+    @content
