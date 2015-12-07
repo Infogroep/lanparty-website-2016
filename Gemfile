@@ -41,3 +41,4 @@ group :test do
 end
 
 gem 'ruby-prof', group: :profile
+gem 'authist', github: 'angryzor/authist'

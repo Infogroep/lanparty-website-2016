@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206235705) do
+ActiveRecord::Schema.define(version: 20151207001148) do
 
   create_table "barcodes", force: :cascade do |t|
     t.string   "code",          null: false
@@ -72,6 +72,28 @@ ActiveRecord::Schema.define(version: 20151206235705) do
 
   add_index "pricing_overrides", ["payable_type", "payable_id"], name: "index_pricing_overrides_on_payable_type_and_payable_id"
   add_index "pricing_overrides", ["pricing_default_id"], name: "index_pricing_overrides_on_pricing_default_id"
+
+  create_table "role_subscriptions", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "authorizable_id"
+    t.string  "authorizable_type"
+  end
+
+  add_index "role_subscriptions", ["authorizable_type", "authorizable_id"], name: "index_role_subs_on_auth_id_and_auth_type_authist"
+  add_index "role_subscriptions", ["role_id"], name: "index_role_subscriptions_on_role_id"
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+  end
+
+  create_table "roles_roles", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "includer_id"
+  end
+
+  add_index "roles_roles", ["includer_id"], name: "index_roles_roles_on_includer_id"
+  add_index "roles_roles", ["role_id"], name: "index_roles_roles_on_role_id"
 
   create_table "sponsors", force: :cascade do |t|
     t.string   "name",       null: false

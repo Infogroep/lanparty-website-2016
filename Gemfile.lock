@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/angryzor/authist.git
+  revision: 750fa001a33eb5ca5cd18c37f56864d2267de40c
+  specs:
+    authist (0.0.1)
+      rails (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -223,6 +230,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  authist!
   byebug
   devise
   factory_girl_rails
