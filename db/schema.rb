@@ -64,12 +64,13 @@ ActiveRecord::Schema.define(version: 20151206235705) do
   create_table "pricing_overrides", force: :cascade do |t|
     t.text     "transform",          null: false
     t.integer  "payable_id",         null: false
+    t.string   "payable_type",       null: false
     t.integer  "pricing_default_id", null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
-  add_index "pricing_overrides", ["payable_id"], name: "index_pricing_overrides_on_payable_id"
+  add_index "pricing_overrides", ["payable_type", "payable_id"], name: "index_pricing_overrides_on_payable_type_and_payable_id"
   add_index "pricing_overrides", ["pricing_default_id"], name: "index_pricing_overrides_on_pricing_default_id"
 
   create_table "sponsors", force: :cascade do |t|
