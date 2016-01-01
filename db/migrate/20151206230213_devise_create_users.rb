@@ -33,8 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :username, null: false
       t.string :first_name, null: false
       t.string :last_name, null: false
-      t.boolean :payed
-      t.decimal :account_balance, precision: 8, scale: 2
+      t.boolean :payed, default: false
+      t.decimal :account_balance, precision: 8, scale: 2, default: 0
 
       t.timestamps null: false
     end
