@@ -1,0 +1,21 @@
+{
+  "jspm": {
+    "dependencies": {
+      "history": "npm:history@^1.17.0",
+      "react": "npm:react@^0.14.5",
+      "react-dom": "npm:react-dom@^0.14.5",
+      "react-redux": "npm:react-redux@^4.0.6",
+      "react-router": "npm:react-router@^2.0.0-rc4",
+      "redux": "npm:redux@^3.0.5",
+      "redux-simple-router": "npm:redux-simple-router@^1.0.2"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "devDependencies": {
+    "jspm": "^0.16.19"
+  }
+}

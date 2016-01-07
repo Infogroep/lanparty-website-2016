@@ -1,0 +1,12 @@
+!!!
+%html
+%head
+  %title ILAN
+  = stylesheet_link_tag 'application', media: 'all'
+  %script{ src: '/javascripts/jspm_packages/system.js' }
+  %script{ src: '/javascripts/config.js' }
+  %script System.import('app')
+  = csrf_meta_tags
+
+%body
+  #root
