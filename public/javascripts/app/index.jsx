@@ -28,6 +28,10 @@ const routes = (
   </Provider>
 )
 
-document.addEventListener('DOMContentLoaded', () => {
+const attachToDom = () =>
   ReactDOM.render(routes, document.getElementById('root'))
-})
+
+if (document.readyState !== 'loading')
+  setTimeout(attachToDom)
+else
+  document.addEventListener('DOMContentLoaded', attachToDom)
