@@ -8,20 +8,24 @@ External environment
 * Use rbenv to install stable MRI ruby
 * Install bundler:
 
+
     echo 'gem: --no-document' >> ~/.gemrc
     gem install bundler
 
 * Install node:
+
 
     sudo apt-get install nodejs
     sudo ln -s /usr/bin/nodejs /usr/local/bin/node
 
 * Install npm:
 
+
     sudo apt-get install npm
     sudo npm install -g npm
 
 * Install jspm:
+
 
     sudo apt-get install -g jspm
 
