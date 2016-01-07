@@ -26,7 +26,7 @@ External environment
 
 ### Install jspm:
 
-    sudo apt-get install -g jspm
+    sudo npm install -g jspm
 
 
 
