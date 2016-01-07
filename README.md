@@ -3,31 +3,31 @@ Environment setup
 
 External environment
 --------------------
+### Install ruby:
+
 * Install rbenv
 * Install rbenv-install
 * Use rbenv to install stable MRI ruby
-* Install bundler:
 
+### Install bundler:
 
     echo 'gem: --no-document' >> ~/.gemrc
     gem install bundler
 
-* Install node:
-
+### Install node:
 
     sudo apt-get install nodejs
     sudo ln -s /usr/bin/nodejs /usr/local/bin/node
 
-* Install npm:
-
+### Install npm:
 
     sudo apt-get install npm
     sudo npm install -g npm
 
-* Install jspm:
-
+### Install jspm:
 
     sudo apt-get install -g jspm
+
 
 
 Development
