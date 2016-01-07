@@ -17,7 +17,7 @@ const history = createHistory()
 
 syncReduxAndRouter(history, store)
 
-ReactDOM.render(
+const routes = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
@@ -25,6 +25,9 @@ ReactDOM.render(
         <Route path="/info" component={Page} text="Hello world!" />
       </Route>
     </Router>
-  </Provider>,
-  document.getElementById('root')
+  </Provider>
 )
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(routes, document.getElementById('root'))
+})
