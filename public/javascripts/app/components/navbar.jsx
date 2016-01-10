@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export default () => (
-  <nav>
-    <Link to="/">ILAN</Link>
-    <Link to="/info">Info</Link>
+  <nav id="navbar">
+    <ul>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/info">Info</Link></li>
+    </ul>
   </nav>
 )

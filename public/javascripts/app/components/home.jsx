@@ -1,5 +1,7 @@
 import React from 'react'
 
 export default () => (
-  <div>Home</div>
+  <div id="ilan-banner">
+    <img src="images/ilan-banner.png" />
+  </div>
 )
