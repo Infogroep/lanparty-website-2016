@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute } from 'react-router'
 import { createHistory } from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import { IntlProvider } from 'react-intl'
 import { reducer as formReducer } from 'redux-form'
+import thunk from 'redux-thunk'
 import App from 'app/components/app'
 import Home from 'app/components/pages/home'
 import Page from 'app/components/pages/page'
@@ -16,7 +17,9 @@ const reducer = combineReducers(Object.assign({}, {
   routing: routeReducer,
   form: formReducer
 }))
-const store = createStore(reducer)
+
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
+const store = createStoreWithMiddleware(reducer)
 const history = createHistory()
 
 syncReduxAndRouter(history, store)
