@@ -25,11 +25,13 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.8.34",
     "core-js": "npm:core-js@1.2.6",
     "history": "npm:history@1.17.0",
-    "react": "npm:react@0.14.5",
+    "react": "npm:react@0.14.6",
     "react-dom": "npm:react-dom@0.14.5",
+    "react-intl": "npm:react-intl@2.0.0-beta-2",
     "react-redux": "npm:react-redux@4.0.6",
     "react-router": "npm:react-router@2.0.0-rc4",
     "redux": "npm:redux@3.0.5",
+    "redux-form": "npm:redux-form@4.1.1",
     "redux-simple-router": "npm:redux-simple-router@1.0.2",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -100,7 +102,7 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:fbjs@0.6.0": {
+    "npm:fbjs@0.6.1": {
       "core-js": "npm:core-js@1.2.6",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -119,6 +121,12 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:intl-messageformat@1.2.0": {
+      "intl-messageformat-parser": "npm:intl-messageformat-parser@1.2.0"
+    },
+    "npm:intl-relativeformat@1.2.0": {
+      "intl-messageformat": "npm:intl-messageformat@1.2.0"
     },
     "npm:invariant@2.2.0": {
       "loose-envify": "npm:loose-envify@1.1.0",
@@ -152,13 +160,24 @@ System.config({
       "strict-uri-encode": "npm:strict-uri-encode@1.0.2"
     },
     "npm:react-dom@0.14.5": {
-      "react": "npm:react@0.14.5"
+      "react": "npm:react@0.14.6"
+    },
+    "npm:react-intl@2.0.0-beta-2": {
+      "intl-format-cache": "npm:intl-format-cache@2.0.5",
+      "intl-messageformat": "npm:intl-messageformat@1.2.0",
+      "intl-relativeformat": "npm:intl-relativeformat@1.2.0",
+      "invariant": "npm:invariant@2.2.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "react": "npm:react@0.14.6"
+    },
+    "npm:react-lazy-cache@3.0.0": {
+      "deep-equal": "npm:deep-equal@1.0.1"
     },
     "npm:react-redux@4.0.6": {
       "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.3",
       "invariant": "npm:invariant@2.2.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@0.14.5",
+      "react": "npm:react@0.14.6",
       "redux": "npm:redux@3.0.5"
     },
     "npm:react-router@2.0.0-rc4": {
@@ -169,9 +188,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "warning": "npm:warning@2.1.0"
     },
-    "npm:react@0.14.5": {
+    "npm:react@0.14.6": {
       "envify": "npm:envify@3.4.0",
-      "fbjs": "npm:fbjs@0.6.0",
+      "fbjs": "npm:fbjs@0.6.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:readable-stream@1.1.13": {
@@ -183,6 +202,15 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
+    },
+    "npm:redux-form@4.1.1": {
+      "deep-equal": "npm:deep-equal@1.0.1",
+      "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.3",
+      "is-promise": "npm:is-promise@2.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "react-lazy-cache": "npm:react-lazy-cache@3.0.0",
+      "react-redux": "npm:react-redux@4.0.6",
+      "redux": "npm:redux@3.0.5"
     },
     "npm:redux-simple-router@1.0.2": {
       "deep-equal": "npm:deep-equal@1.0.1"

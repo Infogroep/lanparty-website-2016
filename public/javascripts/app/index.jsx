@@ -5,12 +5,16 @@ import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute } from 'react-router'
 import { createHistory } from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
+import { IntlProvider } from 'react-intl'
+import { reducer as formReducer } from 'redux-form'
 import App from 'app/components/app'
-import Home from 'app/components/home'
-import Page from 'app/components/page'
+import Home from 'app/components/pages/home'
+import Page from 'app/components/pages/page'
+import Register from 'app/components/pages/register'
 
 const reducer = combineReducers(Object.assign({}, {
-  routing: routeReducer
+  routing: routeReducer,
+  form: formReducer
 }))
 const store = createStore(reducer)
 const history = createHistory()
@@ -18,14 +22,17 @@ const history = createHistory()
 syncReduxAndRouter(history, store)
 
 const routes = (
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Home} />
-        <Route path="/info" component={Page} text="Hello world!" />
-      </Route>
-    </Router>
-  </Provider>
+  <IntlProvider>
+    <Provider store={store}>
+      <Router history={history}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Home} />
+          <Route path="/info" component={Page} text="Hello world!" />
+          <Route path="/register" component={Register} />
+        </Route>
+      </Router>
+    </Provider>
+  </IntlProvider>
 )
 
 const attachToDom = () =>
