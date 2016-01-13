@@ -1,4 +1,5 @@
 import api from 'app/api'
+import { userLoginSuccess } from 'app/actions/session'
 
 export const USER_REGISTRATION_REQUEST = 'USER_REGISTRATION_REQUEST'
 export const USER_REGISTRATION_SUCCESS = 'USER_REGISTRATION_SUCCESS'
@@ -13,12 +14,13 @@ export const registerUser = (user) =>
     try {
       dispatch(userRegistrationRequest(user))
 
-      const { response } = await api('/users', 'POST', { user })
+      const { response, body } = await api('/users', 'POST', { user })
 
       if (response.status < 200 || response.status >= 300)
         throw new Error(`Bad status: ${response.status}`)
-        
+
       dispatch(userRegistrationSuccess(user))
+      dispatch(userLoginSuccess(body))
     }
     catch (e) {
       dispatch(userRegistrationFailure(user, e))

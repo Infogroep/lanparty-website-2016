@@ -37,13 +37,10 @@ export default async (url, method, body) => {
   }
 
   const response = await fetch(url, options)
-
-  if (response.headers['Content-Type'] != 'application/json') {
-    throw new Error('API should return JSON!')
-  }
+  const responseBody = await response.json()
 
   return {
     response,
-    body: deepCamelcaseKeys(JSON.parse(response.body))
+    body: deepCamelcaseKeys(responseBody)
   }
 }

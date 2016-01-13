@@ -3,6 +3,7 @@
     "dependencies": {
       "history": "npm:history@^1.17.0",
       "isomorphic-fetch": "npm:isomorphic-fetch@^2.2.0",
+      "lodash": "npm:lodash@^4.0.0",
       "react": "npm:react@^0.14.5",
       "react-dom": "npm:react-dom@^0.14.5",
       "react-intl": "npm:react-intl@2.0.0-beta-2",

@@ -8,15 +8,20 @@ import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import { IntlProvider } from 'react-intl'
 import { reducer as formReducer } from 'redux-form'
 import thunk from 'redux-thunk'
+
+import appReducer from 'app/reducers/app'
 import App from 'app/components/app'
 import Home from 'app/components/pages/home'
 import Page from 'app/components/pages/page'
 import Register from 'app/components/pages/register'
+import Tickets from 'app/components/pages/tickets'
+import Seats from 'app/components/pages/seats'
 
-const reducer = combineReducers(Object.assign({}, {
+const reducer = combineReducers({
+  app: appReducer,
   routing: routeReducer,
   form: formReducer
-}))
+})
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 const store = createStoreWithMiddleware(reducer)
@@ -32,6 +37,8 @@ const routes = (
           <IndexRoute component={Home} />
           <Route path="/info" component={Page} text="Hello world!" />
           <Route path="/register" component={Register} />
+          <Route path="/tickets" component={Tickets} />
+//          <Route path="/seats" component={Seats} />
         </Route>
       </Router>
     </Provider>

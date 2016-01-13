@@ -1,12 +1,16 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
-export default () => (
+const NavItem = ({ to, visible = true, children }) =>
+  <li><Link to={to}>{children}</Link></li>
+
+export default connect((state) => state.app)(({ session: { signedIn }}) => (
   <nav id="navbar">
     <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/info">Info</Link></li>
-      <li><Link to="/register">Register</Link></li>
+      <NavItem to="/">Home</NavItem>
+      <NavItem to="/info">Info</NavItem>
+      { signedIn ? <NavItem to="/tickets">Tickets</NavItem> : null }
     </ul>
   </nav>
-)
+))
