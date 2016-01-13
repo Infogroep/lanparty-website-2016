@@ -15,10 +15,10 @@ export const registerUser = (user) =>
 
       const { response } = await api('/users', 'POST', { user })
 
-      if (response.status >= 200 && response.status < 300)
-        dispatch(userRegistrationSuccess(user))
-      else
-        dispatch(userRegistrationFailure(user, `Bad status: ${response.status}`))
+      if (response.status < 200 || response.status >= 300)
+        throw new Error(`Bad status: ${response.status}`)
+        
+      dispatch(userRegistrationSuccess(user))
     }
     catch (e) {
       dispatch(userRegistrationFailure(user, e))
