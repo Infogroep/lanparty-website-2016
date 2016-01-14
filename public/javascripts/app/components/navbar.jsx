@@ -11,6 +11,10 @@ export default connect((state) => state.app)(({ session: { signedIn }}) => (
       <NavItem to="/">Home</NavItem>
       <NavItem to="/info">Info</NavItem>
       { signedIn ? <NavItem to="/tickets">Tickets</NavItem> : null }
+      <NavItem to="/shop">Shop</NavItem>
+      { !signedIn ? <NavItem to="/register">Register</NavItem> : null }
+      { !signedIn ? <NavItem to="/login">Login</NavItem> : null }
+      { signedIn ? <li>Logout</li> : null }
     </ul>
   </nav>
 ))

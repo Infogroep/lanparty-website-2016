@@ -1,5 +1,5 @@
 class StoreItemClass < ActiveRecord::Base
-  belongs_to :parent
+  belongs_to :parent, class_name: "StoreItemClass"
   has_many :children, class_name: "StoreItemClass", foreign_key: :parent_id
   has_many :pricing_overrides, as: :payable, dependent: :destroy
   has_many :store_items

@@ -13,6 +13,9 @@ const createDeepKeyTransform = (transform) => {
     if (obj === null || typeof obj !== 'object')
       return obj
 
+    if (obj instanceof Array)
+      return obj.map(recur)
+
     return Object.keys(obj).reduce((result, key) => {
       result[transform(key)] = recur(obj[key])
       return result
