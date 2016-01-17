@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { updateStoreItemTree } from 'app/actions/shop'
+import CurrentOrderList from 'app/components/shop/current-order-list'
 import StoreItemList from 'app/components/shop/store-item-list'
 
 class Shop extends Component {
@@ -9,7 +10,12 @@ class Shop extends Component {
   }
 
   render() {
-    return <StoreItemList tree={this.props.storeItemTree} />
+    return (
+      <div>
+        {this.props.currentOrder ? <CurrentOrderList order={this.props.currentOrder} /> : null}
+        <StoreItemList tree={this.props.storeItemTree} />
+      </div>
+    )
   }
 }
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207001148) do
+ActiveRecord::Schema.define(version: 20160116153322) do
 
   create_table "barcodes", force: :cascade do |t|
     t.string   "code",          null: false
@@ -43,6 +43,35 @@ ActiveRecord::Schema.define(version: 20151207001148) do
   end
 
   add_index "blog_posts", ["user_id"], name: "index_blog_posts_on_user_id"
+
+  create_table "order_fragments", force: :cascade do |t|
+    t.integer  "order_id",                                         null: false
+    t.integer  "status",                               default: 0, null: false
+    t.decimal  "locked_price", precision: 8, scale: 2
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+  end
+
+  add_index "order_fragments", ["order_id"], name: "index_order_fragments_on_order_id"
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "store_item_id",                 null: false
+    t.integer  "order_fragment_id",             null: false
+    t.integer  "count",             default: 0, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "order_items", ["order_fragment_id"], name: "index_order_items_on_order_fragment_id"
+  add_index "order_items", ["store_item_id"], name: "index_order_items_on_store_item_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "pricing_defaults", force: :cascade do |t|
     t.string   "name",        null: false

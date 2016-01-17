@@ -1,14 +1,8 @@
-import { STORE_ITEM_TREE_UPDATE_SUCCESS } from 'app/actions/shop'
+import { combineReducers } from 'redux'
+import currentOrder from 'app/reducers/shop/current-order'
+import storeItemTree from 'app/reducers/shop/store-item-tree'
 
-export default (state = { storeItemTree: [] }, { type, storeItemTree }) => {
-  switch (type) {
-    case STORE_ITEM_TREE_UPDATE_SUCCESS:
-      return {
-        ...state,
-        storeItemTree
-      }
-
-    default:
-      return state
-  }
-}
+export default combineReducers({
+  storeItemTree,
+  currentOrder
+})

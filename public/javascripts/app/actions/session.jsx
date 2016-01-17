@@ -25,3 +25,10 @@ export const loginUser = (email, password) =>
       dispatch(userLoginFailure(error))
     }
   }
+
+export const logoutUser = () =>
+  async (dispatch) => {
+    try {
+      dispatch
+    }
+  }
